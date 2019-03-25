@@ -1,6 +1,6 @@
 ---
 services:
-  - docker_push.sh
+  - docker
 install: make
 before_install:
   - docker pull alpine:3.7
