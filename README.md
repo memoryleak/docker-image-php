@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/memoryleak/docker-image-php.svg?branch=master)](https://travis-ci.org/memoryleak/docker-image-php)
 
 # memoryleak/php
-Opinionated docker image of diverse PHP versions.
+Opinionated docker images of PHP 7.1.
 
 ## Tags
 * memoryleak/php:7.1
