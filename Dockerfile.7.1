@@ -1,0 +1,34 @@
+FROM alpine:3.7
+ENV PATH="/usr/local/bin:/usr/sbin:${PATH}"
+RUN apk update --no-cache && \
+	apk add --no-cache wget \
+		php7 \
+		php7-bz2 \
+		php7-curl \
+		php7-gd \
+		php7-iconv \
+		php7-intl \
+		php7-json \
+		php7-mbstring \
+		php7-mcrypt \
+		php7-mysqlnd \
+		php7-opcache \
+		php7-pcntl \
+		php7-pdo \
+		php7-recode \
+		php7-soap \
+		php7-sockets \
+		php7-xml \
+		php7-xmlrpc \
+		php7-xsl \
+		php7-phar \
+		php7-zip \
+		php7-session \
+		php7-simplexml \
+		php7-tokenizer \
+		php7-xmlwriter
+
+COPY php-entrypoint /usr/local/bin/
+ENTRYPOINT ["php-entrypoint"]
+WORKDIR /var/www/html
+CMD ["php"]

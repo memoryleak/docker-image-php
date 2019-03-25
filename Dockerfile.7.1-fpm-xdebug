@@ -1,0 +1,2 @@
+FROM memoryleak/php:7.1-fpm
+RUN apk add --no-cache php7-xdebug

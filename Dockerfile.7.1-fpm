@@ -1,0 +1,19 @@
+FROM memoryleak/php:7.1
+
+RUN apk update --no-cache && \
+	apk add --no-cache php7-fpm
+
+RUN sed -i 's/listen = 127.0.0.1:9000/listen = 9000/' /etc/php7/php-fpm.d/www.conf && \
+	sed -i 's/;clear_env = no/clear_env = no/' /etc/php7/php-fpm.d/www.conf && \
+	sed -i 's/;catch_workers_output = yes/catch_workers_output = yes/' /etc/php7/php-fpm.d/www.conf && \
+	sed -i 's/;access.log = log\/php7\/$pool.access.log/access.log = \/proc\/self\/fd\/2/' /etc/php7/php-fpm.d/www.conf && \
+	sed -i 's/;daemonize = yes/daemonize = no/' /etc/php7/php-fpm.conf && \
+	sed -i 's/;error_log = log\/php7\/error.log/;error_log = \/proc\/self\/fd\/2/' /etc/php7/php-fpm.conf && \
+	mkdir -p /var/www/html && \
+	chmod 777 /var/www/html
+
+COPY php-fpm-entrypoint /usr/local/bin/
+ENTRYPOINT ["php-fpm-entrypoint"]
+WORKDIR /var/www/html
+EXPOSE 9000
+CMD ["/usr/sbin/php-fpm7"]
