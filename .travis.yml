@@ -1,6 +1,6 @@
 ---
 services:
-  - docker
+  - docker_push.sh
 install: make
 before_install:
   - docker pull alpine:3.7
@@ -8,6 +8,6 @@ script: make all
 
 deploy:
   provider: script
-  script: bash docker_push.sh
+  script: chmod +x ./deploy.sh && ./deploy.sh
   on:
     branch: master
