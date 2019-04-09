@@ -1,2 +1,9 @@
 FROM memoryleak/php:7.1-fpm
-RUN apk add --no-cache php7-xdebug
+RUN apk add --no-cache php7-xdebug && \
+	sed -i 's/;zend_extension=xdebug.so/zend_extension=xdebug.so/' /etc/php7/conf.d/xdebug.ini
+
+COPY php-fpm-entrypoint /bin/
+ENTRYPOINT ["php-fpm-entrypoint"]
+WORKDIR /var/www/html
+EXPOSE 9000
+CMD ["/usr/sbin/php-fpm7"]
