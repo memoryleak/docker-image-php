@@ -17,3 +17,9 @@ docker push memoryleak/php:7.1-fpm-$TRAVIS_BUILD_NUMBER
 docker push memoryleak/php:7.1-fpm-xdebug-$TRAVIS_BUILD_NUMBER
 docker push memoryleak/php:7.1-composer-$TRAVIS_BUILD_NUMBER
 docker push memoryleak/php:7.1-xdebug-$TRAVIS_BUILD_NUMBER
+
+docker push memoryleak/php:7.1
+docker push memoryleak/php:7.1-fpm
+docker push memoryleak/php:7.1-fpm-xdebug
+docker push memoryleak/php:7.1-composer
+docker push memoryleak/php:7.1-xdebug
