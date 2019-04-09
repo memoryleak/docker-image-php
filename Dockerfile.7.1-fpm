@@ -12,7 +12,7 @@ RUN sed -i 's/listen = 127.0.0.1:9000/listen = 9000/' /etc/php7/php-fpm.d/www.co
 	mkdir -p /var/www/html && \
 	chmod 777 /var/www/html
 
-COPY php-fpm-entrypoint /usr/local/bin/
+COPY php-fpm-entrypoint /bin/
 ENTRYPOINT ["php-fpm-entrypoint"]
 WORKDIR /var/www/html
 EXPOSE 9000

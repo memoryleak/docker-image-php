@@ -29,7 +29,7 @@ RUN apk update --no-cache && \
 		php7-tokenizer \
 		php7-xmlwriter
 
-COPY php-entrypoint /usr/local/bin/
+COPY php-entrypoint /bin/
 ENTRYPOINT ["php-entrypoint"]
 WORKDIR /var/www/html
 CMD ["php"]
