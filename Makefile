@@ -42,3 +42,5 @@
 
 7.1-images: 7.1 7.1-fpm 7.1-fpm-xdebug 7.1-composer 7.1-xdebug
 7.2-images: 7.2 7.2-fpm 7.2-fpm-xdebug 7.2-composer 7.2-xdebug
+
+all: 7.1-images 7.2-images
