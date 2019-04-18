@@ -1,0 +1,7 @@
+FROM memoryleak/php:7.2
+RUN apk add --no-cache php7-xdebug && \
+	sed -i 's/;zend_extension=xdebug.so/zend_extension=xdebug.so/' /etc/php7/conf.d/xdebug.ini
+COPY php-entrypoint /bin/
+ENTRYPOINT ["php-entrypoint"]
+WORKDIR /var/www/html
+CMD ["php"]
